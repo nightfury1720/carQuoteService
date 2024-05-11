@@ -1,5 +1,6 @@
 import express from "express";
 import { initializeApp } from "firebase/app";
+import cors from "cors";
 import {
   getFirestore,
   collection,
@@ -57,6 +58,7 @@ async function getCarById(carId) {
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 // Get all cars
 app.get("/cars", async (req, res) => {
